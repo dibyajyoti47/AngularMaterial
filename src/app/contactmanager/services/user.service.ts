@@ -34,5 +34,13 @@ export class UserService {
         console.log("Failed to fetch users");
       });
   } 
+  addUser(user){
+    return new Promise ((resolve, reject)=>{
+      user.id = this.dataStore.users.length + 1;
+      this.dataStore.users.push(user);
+      this._users.next(Object.assign({}, this.dataStore).users);
+      resolve(user);
+    })
+  }
 
 }

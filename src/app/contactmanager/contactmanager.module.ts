@@ -6,12 +6,13 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 import { MaterialModule } from '../shared/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes, RouterModule } from '@angular/router';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NotesComponent } from './components/notes/notes.component';
+import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
 
 const routes: Routes = [
   {
@@ -31,9 +32,17 @@ const routes: Routes = [
     FormsModule,
     FlexLayoutModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   providers:[UserService],
-  declarations: [ContactmanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent, NotesComponent]
+  declarations: [ ContactmanagerAppComponent, 
+                  ToolbarComponent, 
+                  MainContentComponent, 
+                  SidenavComponent, 
+                  NotesComponent, 
+                  NewContactDialogComponent 
+                ],
+  entryComponents:[NewContactDialogComponent]                
 })
 export class ContactmanagerModule { }
